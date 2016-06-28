@@ -100,9 +100,9 @@ public class ElasticsearchHttpClient {
             public void run() {
                 try {
                     flush();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     logger.error(e.getMessage(), e);
-                    throw new AppenderLoggingException(e);
+                    // should never ever leak an exception, this just kills the scheduler
                 }
 
             }
