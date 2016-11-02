@@ -169,7 +169,6 @@ public class ElasticsearchHttpClient {
             }
         } catch (Throwable t) {
             logger.error(t);
-            closed = true;
             throw new AppenderLoggingException("Elasticsearch HTTP error", t);
         } finally {
             lock.unlock();
